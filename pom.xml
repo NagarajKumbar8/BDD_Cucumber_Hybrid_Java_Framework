@@ -24,7 +24,19 @@
 	</dependencyManagement>
 
 	<dependencies>
-
+	
+	<dependency>
+    <groupId>io.github.bonigarcia</groupId>
+    <artifactId>webdrivermanager</artifactId>
+    <version>5.9.2</version>
+</dependency>
+	
+ <dependency>
+        <groupId>org.testng</groupId>
+        <artifactId>testng</artifactId>
+        <version>7.9.0</version>
+        <scope>test</scope>
+    </dependency>
 	<dependency>
     <groupId>io.cucumber</groupId>
     <artifactId>cucumber-java</artifactId>
