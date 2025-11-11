@@ -15,6 +15,7 @@ public class AccountPage {
 	
 	public AccountPage(WebDriver driver) {
 		
+		
 		this.driver = driver;
 		PageFactory.initElements(driver,this);
 		elementUtils = new ElementUtils(driver);

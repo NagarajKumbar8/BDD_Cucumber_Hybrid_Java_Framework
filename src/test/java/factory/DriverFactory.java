@@ -8,6 +8,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.CommonUtils;
 
 public class DriverFactory {
@@ -15,21 +16,20 @@ public class DriverFactory {
 	static WebDriver driver = null;
 	
 	public static WebDriver initializeBrowser(String browserName) {
-		
-		if(browserName.equals("chrome")) {
+		if (browserName.equalsIgnoreCase("chrome")) {
+			//WebDriverManager.chromedriver().setup();
+			//driver = new ChromeDriver();
 			
-			driver = new ChromeDriver();
+		}else if(browserName.equalsIgnoreCase("firefox")) {
+			//WebDriverManager.firefoxdriver().setup();
+			//driver = new FirefoxDriver();
 			
-		}else if(browserName.equals("firefox")) {
-			
-			driver = new FirefoxDriver();
-			
-		}else if(browserName.equals("edge")) {
-			
+		}else if(browserName.equalsIgnoreCase("edge")) {
+			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			
-		}else if(browserName.equals("safari")) {
-			
+		}else if(browserName.equalsIgnoreCase("safari")) {
+			WebDriverManager.safaridriver().setup();
 			driver = new SafariDriver();
 			
 		}
