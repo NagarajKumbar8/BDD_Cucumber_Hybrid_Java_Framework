@@ -14,32 +14,43 @@ import utils.ConfigReader;
 
 public class MyHooks {
 
-	WebDriver driver;
-    
+    WebDriver driver;
 
-	@Before
-	public void setup() {
 
-		Properties prop = new ConfigReader().intializeProperties();
-		driver = DriverFactory.initializeBrowser(prop.getProperty("browser"));
-		driver.get(prop.getProperty("url"));
+    @Before
+    public void setup() {
 
-	}
+        Properties prop = new ConfigReader().intializeProperties();
+        String sysBrowser = System.getProperty("browser");
+        String browser = (sysBrowser != null && !sysBrowser.isEmpty())
+                ? sysBrowser
+                : prop.getProperty("browser", "chrome");
 
-	@After
-	public void tearDown(Scenario scenario) {
+        String sysUrl = System.getProperty("url");
+        String url = (sysUrl != null && !sysUrl.isEmpty())
+                ? sysUrl
+                : prop.getProperty("url", "url");
 
-		//if (driver != null) {
-		  String scenarioName = scenario.getName().replaceAll(" ","_");
-		  
-		  if(scenario.isFailed()) {
-		  
-		  byte[] srcScreenshot =
-		  ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
-		  scenario.attach(srcScreenshot,"image/png", scenarioName); }
-		 
-		  driver.quit();
-		}
-	//}
+        driver = DriverFactory.initializeBrowser(prop.getProperty("browser"));
+        driver.get(prop.getProperty("url"));
+
+    }
+
+    @After
+    public void tearDown(Scenario scenario) {
+
+        //if (driver != null) {
+        String scenarioName = scenario.getName().replaceAll(" ", "_");
+
+        if (scenario.isFailed()) {
+
+            byte[] srcScreenshot =
+                    ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(srcScreenshot, "image/png", scenarioName);
+        }
+
+        driver.quit();
+    }
+    //}
 
 }

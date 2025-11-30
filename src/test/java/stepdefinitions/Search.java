@@ -30,7 +30,15 @@ public class Search {
 		homePage.enterProductIntoSearchBox(validProductText);
 		
 	}
-
+	
+	@When("User enters partial product name {string} into Search box field")
+	public void user_enters_partial_product_name_into_search_box_field(String partialProductText) {
+	    
+		homePage = new HomePage(driver);
+		homePage.enterProductIntoSearchBox(partialProductText);
+		
+	}
+	
 	@When("User clicks on Search button")
 	public void user_clicks_on_search_button() {
 		
@@ -42,6 +50,13 @@ public class Search {
 	public void user_should_get_valid_product_displayed_in_search_results() {
 	
 		Assert.assertTrue(searchResultsPage.displayStatusOfValidProduct());
+	  
+	}
+	
+	@Then("User should get relevant products displayed in search results")
+	public void user_should_get_relevant_products_displayed_in_search_results() {
+	
+		Assert.assertTrue(searchResultsPage.displayStatusOfValidMacBookProduct());
 	  
 	}
 
@@ -66,5 +81,8 @@ public class Search {
 		homePage = new HomePage(driver);
 		
 	}
+	
+	
+	
 
 }

@@ -1,3 +1,0 @@
-# Created at 2025-11-08T18:58:45.750
-org.junit.platform.commons.PreconditionViolationException: Cannot create Launcher without at least one TestEngine; consider adding an engine implementation JAR to the classpath
-

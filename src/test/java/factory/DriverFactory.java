@@ -17,12 +17,12 @@ public class DriverFactory {
 	
 	public static WebDriver initializeBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
-			//WebDriverManager.chromedriver().setup();
-			//driver = new ChromeDriver();
+			WebDriverManager.chromedriver().setup();
+			driver = new ChromeDriver();
 			
 		}else if(browserName.equalsIgnoreCase("firefox")) {
-			//WebDriverManager.firefoxdriver().setup();
-			//driver = new FirefoxDriver();
+			WebDriverManager.firefoxdriver().setup();
+			driver = new FirefoxDriver();
 			
 		}else if(browserName.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();

@@ -1,36 +1,39 @@
 Feature: Registration functionality
 
+  @Functional
   Scenario: User creates an account only with mandatory fields
     Given User navigates to Register Account page
     When User enters the details into below fields
-      | firstName | Nagaraj       |
-      | lastName  | K    |
+      | firstName | Nagaraj    |
+      | lastName  | K          |
       | telephone | 1234567890 |
       | password  | 12345      |
     And User selects Privacy Policy
     And User clicks on Continue button
     Then User account should get created successfully
 
+  @Functional
   Scenario: User creates an account with all fields
     Given User navigates to Register Account page
     When User enters the details into below fields
-      | firstName | Nag       |
-      | lastName  | Kk    |
+      | firstName | Nag        |
+      | lastName  | Kk         |
       | telephone | 1234567890 |
-      | password  | 1233      |
+      | password  | 1233       |
     And User selects Yes for Newsletter
     And User selects Privacy Policy
     And User clicks on Continue button
     Then User account should get created successfully
 
+  @Functional
   Scenario: User creates a duplicate account
     Given User navigates to Register Account page
     When User enters the details into below fields with duplicate email
-      | firstName | Nagu                   |
-      | lastName  | Nk                |
+      | firstName | Nagu                  |
+      | lastName  | Nk                    |
       | email     | nagaraj2225@gmail.com |
-      | telephone | 1234567890             |
-      | password  | 123                  |
+      | telephone | 1234567890            |
+      | password  | 123                   |
     And User selects Yes for Newsletter
     And User selects Privacy Policy
     And User clicks on Continue button

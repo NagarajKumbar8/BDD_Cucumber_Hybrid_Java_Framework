@@ -11,7 +11,7 @@ public class CommonUtils {
 	public String getEmailWithTimeStamp() {
 		
 		Date date = new Date();
-		return "amotoori"+date.toString().replace(" ","_").replace(":","_")+"@gmail.com";
+		return "nag"+date.toString().replace(" ","_").replace(":","_")+"@gmail.com";
 		
 	}
 
