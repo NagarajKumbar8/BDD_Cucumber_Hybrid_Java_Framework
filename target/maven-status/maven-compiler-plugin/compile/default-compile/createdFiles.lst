@@ -1,9 +1,0 @@
-utils\ElementUtils.class
-pages\AccountSuccessPage.class
-pages\LoginPage.class
-pages\HomePage.class
-utils\ConfigReader.class
-pages\AccountPage.class
-pages\RegisterPage.class
-pages\SearchResultsPage.class
-utils\CommonUtils.class
