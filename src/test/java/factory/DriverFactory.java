@@ -1,6 +1,7 @@
 package factory;
 
 import java.time.Duration;
+import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,11 +11,21 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.CommonUtils;
+import utils.ConfigReader;
+
 
 public class DriverFactory {
 	
 	static WebDriver driver = null;
-	
+
+    /*Properties prop = new ConfigReader().intializeProperties();
+    String url=prop.getProperty("QA_URL");
+    String Browser_Property= prop.getProperty("browser");
+    String Browser_Maven=System.getProperty("browser");
+
+    String browser= Browser_Maven!=null ? Browser_Maven : Browser_Property;*/
+
+
 	public static WebDriver initializeBrowser(String browserName) {
 		if (browserName.equalsIgnoreCase("chrome")) {
 			WebDriverManager.chromedriver().setup();

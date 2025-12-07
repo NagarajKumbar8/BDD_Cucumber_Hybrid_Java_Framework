@@ -16,20 +16,10 @@ public class MyHooks {
 
     WebDriver driver;
 
-
     @Before
     public void setup() {
 
         Properties prop = new ConfigReader().intializeProperties();
-        String sysBrowser = System.getProperty("browser");
-        String browser = (sysBrowser != null && !sysBrowser.isEmpty())
-                ? sysBrowser
-                : prop.getProperty("browser", "chrome");
-
-        String sysUrl = System.getProperty("url");
-        String url = (sysUrl != null && !sysUrl.isEmpty())
-                ? sysUrl
-                : prop.getProperty("url", "url");
 
         driver = DriverFactory.initializeBrowser(prop.getProperty("browser"));
         driver.get(prop.getProperty("url"));
